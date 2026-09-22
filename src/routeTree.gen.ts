@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AthletePerformanceRouteImport } from './routes/athlete-performance'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as RunAnalyticsRouteImport } from './routes/run-analytics'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AthletePerformanceRoute = AthletePerformanceRouteImport.update({
+  id: '/athlete-performance',
+  path: '/athlete-performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecommendationsRoute = RecommendationsRouteImport.update({
+  id: '/recommendations',
+  path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RunAnalyticsRoute = RunAnalyticsRouteImport.update({
+  id: '/run-analytics',
+  path: '/run-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/athlete-performance': typeof AthletePerformanceRoute
+  '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/insights': typeof InsightsRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/run-analytics': typeof RunAnalyticsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/athlete-performance': typeof AthletePerformanceRoute
+  '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/insights': typeof InsightsRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/run-analytics': typeof RunAnalyticsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/athlete-performance': typeof AthletePerformanceRoute
+  '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/insights': typeof InsightsRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/run-analytics': typeof RunAnalyticsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/athlete-performance'
+    | '/community'
+    | '/contact'
+    | '/dashboard'
+    | '/insights'
+    | '/recommendations'
+    | '/run-analytics'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/athlete-performance'
+    | '/community'
+    | '/contact'
+    | '/dashboard'
+    | '/insights'
+    | '/recommendations'
+    | '/run-analytics'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/athlete-performance'
+    | '/community'
+    | '/contact'
+    | '/dashboard'
+    | '/insights'
+    | '/recommendations'
+    | '/run-analytics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AthletePerformanceRoute: typeof AthletePerformanceRoute
+  CommunityRoute: typeof CommunityRoute
+  ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
+  InsightsRoute: typeof InsightsRoute
+  RecommendationsRoute: typeof RecommendationsRoute
+  RunAnalyticsRoute: typeof RunAnalyticsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/athlete-performance': {
+      id: '/athlete-performance'
+      path: '/athlete-performance'
+      fullPath: '/athlete-performance'
+      preLoaderRoute: typeof AthletePerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recommendations': {
+      id: '/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/run-analytics': {
+      id: '/run-analytics'
+      path: '/run-analytics'
+      fullPath: '/run-analytics'
+      preLoaderRoute: typeof RunAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AthletePerformanceRoute: AthletePerformanceRoute,
+  CommunityRoute: CommunityRoute,
+  ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
+  InsightsRoute: InsightsRoute,
+  RecommendationsRoute: RecommendationsRoute,
+  RunAnalyticsRoute: RunAnalyticsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
