@@ -1,24 +1,26 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Activity, ArrowRight, BrainCircuit, Database, Gauge, HeartPulse, Radio, Sparkles, Users, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DemoBadge, Eyebrow, InsightCard, SectionHead, Workflow } from "@/components/sports-ui";
+import { insights } from "@/lib/sports-data";
+import runnerImage from "@/assets/sportsmax-runner.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({ meta: [{ title: "SportsMax — Sports Analytics & Performance Intelligence" }, { name: "description", content: "Turn athlete and running data into performance intelligence, automated insights, and smarter engagement." }, { property: "og:title", content: "SportsMax — Performance Intelligence" }, { property: "og:description", content: "Sports data, analytics, intelligence, automation, and engagement in one platform." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }], links: [{ rel: "canonical", href: "/" }] }), component: HomePage,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+function HomePage() { return <>
+  <section className="relative min-h-[min(860px,92vh)] overflow-hidden border-b border-border pt-17">
+    <img src={runnerImage} width={1600} height={1000} alt="Runner on a track with integrated performance data traces" className="absolute inset-0 h-full w-full object-cover object-[62%_center]" />
+    <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_96%,transparent)_35%,color-mix(in_oklab,var(--background)_35%,transparent)_72%,color-mix(in_oklab,var(--background)_55%,transparent)_100%)]" />
+    <div className="sport-grid absolute inset-0 opacity-15" />
+    <div className="content-wrap relative flex min-h-[min(790px,calc(92vh-68px))] items-center py-16"><div className="max-w-2xl reveal"><div className="mb-6 flex flex-wrap items-center gap-3"><DemoBadge/><span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Athlete intelligence platform</span></div><h1 className="text-balance text-5xl font-semibold leading-[.98] sm:text-6xl lg:text-7xl">Turn Sports Data Into <span className="text-primary">Performance Intelligence</span></h1><p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">SportsMax combines athlete data, running analytics, intelligent insights, and automation to help athletes and sports communities improve continuously.</p><div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg"><Link to="/run-analytics">Explore Run Analytics<ArrowRight/></Link></Button><Button asChild size="lg" variant="outline"><Link to="/dashboard">View Analytics</Link></Button></div><div className="mt-12 grid max-w-xl grid-cols-3 gap-3 border-t border-border/70 pt-6"><Stat value="24.8K" label="Demo sessions"/><Stat value="+8.6%" label="Avg. progress"/><Stat value="91%" label="Consistency"/></div></div></div>
+    <div className="absolute bottom-7 right-[7%] hidden w-72 border border-border/70 bg-card/80 p-4 backdrop-blur-md lg:block"><div className="flex items-center justify-between"><span className="text-xs uppercase tracking-widest text-muted-foreground">Live pace</span><Activity className="h-4 w-4 text-primary"/></div><div className="mt-3 flex items-end justify-between"><span className="font-display text-3xl font-semibold">5:18</span><span className="text-xs text-primary">min/km · optimal</span></div><div className="mt-4 flex h-10 items-end gap-1">{[42,57,48,66,52,78,61,85,70,92,74,88].map((v,i)=><span key={i} className="flex-1 bg-primary/70" style={{height:`${v}%`}} />)}</div></div>
+  </section>
+  <section className="py-20"><div className="content-wrap"><SectionHead eyebrow="Core architecture" title="From Raw Data to Real Performance Insights" text="Every training signal moves through a clear intelligence system built to make performance understandable and actionable."/><div className="grid gap-4 lg:grid-cols-3"><Layer icon={<Database/>} number="01" title="Capture" text="Collect running and athlete performance data from every training session." tags={["Distance","Pace","Speed","Cadence","Heart rate","GPS","Duration"]}/><Layer icon={<BrainCircuit/>} number="02" title="Analyze" text="Transform raw performance data into meaningful trends, context, and forecasts." tags={["Endurance","Consistency","Fatigue","Progress","Patterns"]}/><Layer icon={<Zap/>} number="03" title="Automate" text="Deliver dashboards, weekly reports, alerts, and recommendations automatically." tags={["Reports","Alerts","Goals","Milestones"]}/></div></div></section>
+  <section className="border-y border-border bg-card/35 py-20"><div className="content-wrap"><SectionHead eyebrow="Automated intelligence" title="Intelligence That Works for You" text="SportsMax continuously turns recent activity into clear signals for athletes and coaches." action={<Button asChild variant="outline"><Link to="/insights">All insights<ArrowRight/></Link></Button>}/><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{insights.map(i=><InsightCard key={i.title} {...i}/>)}</div></div></section>
+  <section className="py-20"><div className="content-wrap"><SectionHead eyebrow="Connected automation" title="One system. Two powerful flows." text="Reduce manual analysis internally, then turn intelligence into timely engagement externally."/><div className="grid gap-5"><Workflow title="Internal Analytics Automation" description="For analysts, coaches, organizations, and administrators." steps={["Data capture","Processing","Analytics engine","Insight generation","Dashboard","Report"]}/><Workflow title="External Engagement Automation" description="For athletes, coaches, fans, and sports communities." steps={["Performance data","Insight","Recommendation","Notification","Athlete update","Engagement"]}/></div></div></section>
+  <section className="border-t border-border bg-secondary/40 py-20"><div className="content-wrap"><SectionHead eyebrow="Built for the ecosystem" title="Intelligence for every side of sport"/><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><Use icon={<Gauge/>} title="Athletes" text="Understand effort, progress, and next actions."/><Use icon={<BrainCircuit/>} title="Coaches" text="See trends across athletes and training blocks."/><Use icon={<Users/>} title="Communities" text="Build challenges and celebrate milestones."/><Use icon={<Radio/>} title="Fans" text="Engage with timely performance stories."/></div></div></section>
+</>; }
+function Stat({value,label}:{value:string;label:string}){return <div><div className="font-display text-xl font-semibold text-foreground">{value}</div><div className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div></div>}
+function Layer({icon,number,title,text,tags}:{icon:React.ReactNode;number:string;title:string;text:string;tags:string[]}){return <article className="surface-card p-6"><div className="flex items-center justify-between"><span className="grid h-11 w-11 place-items-center rounded-md bg-primary/10 text-primary">{icon}</span><span className="font-mono text-xs text-muted-foreground">{number}</span></div><h3 className="mt-8 text-2xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p><div className="mt-6 flex flex-wrap gap-2">{tags.map(tag=><span key={tag} className="rounded border border-border bg-secondary px-2.5 py-1 text-xs text-muted-foreground">{tag}</span>)}</div></article>}
+function Use({icon,title,text}:{icon:React.ReactNode;title:string;text:string}){return <article className="border-l-2 border-primary bg-card p-5"><span className="text-primary">{icon}</span><h3 className="mt-5 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>}
