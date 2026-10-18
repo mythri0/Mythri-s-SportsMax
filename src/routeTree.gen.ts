@@ -11,13 +11,41 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as AthletePerformanceRouteImport } from './routes/athlete-performance'
+import { Route as AthletesRouteImport } from './routes/athletes'
+import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CoachesRouteImport } from './routes/coaches'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CtaReportRouteImport } from './routes/cta-report'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as EcosystemRouteImport } from './routes/ecosystem'
+import { Route as GoogleTrendsRouteImport } from './routes/google-trends'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as InstitutionRouteImport } from './routes/institution'
+import { Route as LinkedinRouteImport } from './routes/linkedin'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as RunAnalyticsRouteImport } from './routes/run-analytics'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WebsiteAnalyticsRouteImport } from './routes/website-analytics'
+import { Route as YoutubeRouteImport } from './routes/youtube'
+import { Route as YoutubeAdminRouteImport } from './routes/youtube-admin'
+import { Route as SportsIndexRouteImport } from './routes/sports.index'
+import { Route as SportsFootballRouteImport } from './routes/sports.football'
+import { Route as SportsGameAnalysisRouteImport } from './routes/sports.game-analysis'
+import { Route as SportsHockeyRouteImport } from './routes/sports.hockey'
+import { Route as SportsRelayRouteImport } from './routes/sports.relay'
+import { Route as SportsRunningRouteImport } from './routes/sports.running'
+import { Route as SportsSwimmingRouteImport } from './routes/sports.swimming'
+import { Route as SportsAthleticsHighJumpRouteImport } from './routes/sports.athletics.high-jump'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,9 +57,34 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AthletePerformanceRoute = AthletePerformanceRouteImport.update({
   id: '/athlete-performance',
   path: '/athlete-performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AthletesRoute = AthletesRouteImport.update({
+  id: '/athletes',
+  path: '/athletes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookAppointmentRoute = BookAppointmentRouteImport.update({
+  id: '/book-appointment',
+  path: '/book-appointment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoachesRoute = CoachesRouteImport.update({
+  id: '/coaches',
+  path: '/coaches',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityRoute = CommunityRouteImport.update({
@@ -44,9 +97,29 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CtaReportRoute = CtaReportRouteImport.update({
+  id: '/cta-report',
+  path: '/cta-report',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcosystemRoute = EcosystemRouteImport.update({
+  id: '/ecosystem',
+  path: '/ecosystem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoogleTrendsRoute = GoogleTrendsRouteImport.update({
+  id: '/google-trends',
+  path: '/google-trends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsRoute = InsightsRouteImport.update({
@@ -54,9 +127,44 @@ const InsightsRoute = InsightsRouteImport.update({
   path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InstitutionRoute = InstitutionRouteImport.update({
+  id: '/institution',
+  path: '/institution',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinkedinRoute = LinkedinRouteImport.update({
+  id: '/linkedin',
+  path: '/linkedin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecommendationsRoute = RecommendationsRouteImport.update({
   id: '/recommendations',
   path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RunAnalyticsRoute = RunAnalyticsRouteImport.update({
@@ -64,87 +172,343 @@ const RunAnalyticsRoute = RunAnalyticsRouteImport.update({
   path: '/run-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebsiteAnalyticsRoute = WebsiteAnalyticsRouteImport.update({
+  id: '/website-analytics',
+  path: '/website-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YoutubeRoute = YoutubeRouteImport.update({
+  id: '/youtube',
+  path: '/youtube',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YoutubeAdminRoute = YoutubeAdminRouteImport.update({
+  id: '/youtube-admin',
+  path: '/youtube-admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsIndexRoute = SportsIndexRouteImport.update({
+  id: '/sports/',
+  path: '/sports/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsFootballRoute = SportsFootballRouteImport.update({
+  id: '/sports/football',
+  path: '/sports/football',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsGameAnalysisRoute = SportsGameAnalysisRouteImport.update({
+  id: '/sports/game-analysis',
+  path: '/sports/game-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsHockeyRoute = SportsHockeyRouteImport.update({
+  id: '/sports/hockey',
+  path: '/sports/hockey',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsRelayRoute = SportsRelayRouteImport.update({
+  id: '/sports/relay',
+  path: '/sports/relay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsRunningRoute = SportsRunningRouteImport.update({
+  id: '/sports/running',
+  path: '/sports/running',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsSwimmingRoute = SportsSwimmingRouteImport.update({
+  id: '/sports/swimming',
+  path: '/sports/swimming',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SportsAthleticsHighJumpRoute = SportsAthleticsHighJumpRouteImport.update({
+  id: '/sports/athletics/high-jump',
+  path: '/sports/athletics/high-jump',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
   '/athlete-performance': typeof AthletePerformanceRoute
+  '/athletes': typeof AthletesRoute
+  '/book-appointment': typeof BookAppointmentRoute
+  '/careers': typeof CareersRoute
+  '/coaches': typeof CoachesRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/cta-report': typeof CtaReportRoute
   '/dashboard': typeof DashboardRoute
+  '/ecosystem': typeof EcosystemRoute
+  '/google-trends': typeof GoogleTrendsRoute
+  '/help': typeof HelpRoute
   '/insights': typeof InsightsRoute
+  '/institution': typeof InstitutionRoute
+  '/linkedin': typeof LinkedinRoute
+  '/platform': typeof PlatformRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
+  '/resources': typeof ResourcesRoute
   '/run-analytics': typeof RunAnalyticsRoute
+  '/terms': typeof TermsRoute
+  '/website-analytics': typeof WebsiteAnalyticsRoute
+  '/youtube': typeof YoutubeRoute
+  '/youtube-admin': typeof YoutubeAdminRoute
+  '/sports/football': typeof SportsFootballRoute
+  '/sports/game-analysis': typeof SportsGameAnalysisRoute
+  '/sports/hockey': typeof SportsHockeyRoute
+  '/sports/relay': typeof SportsRelayRoute
+  '/sports/running': typeof SportsRunningRoute
+  '/sports/swimming': typeof SportsSwimmingRoute
+  '/sports/': typeof SportsIndexRoute
+  '/sports/athletics/high-jump': typeof SportsAthleticsHighJumpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
   '/athlete-performance': typeof AthletePerformanceRoute
+  '/athletes': typeof AthletesRoute
+  '/book-appointment': typeof BookAppointmentRoute
+  '/careers': typeof CareersRoute
+  '/coaches': typeof CoachesRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/cta-report': typeof CtaReportRoute
   '/dashboard': typeof DashboardRoute
+  '/ecosystem': typeof EcosystemRoute
+  '/google-trends': typeof GoogleTrendsRoute
+  '/help': typeof HelpRoute
   '/insights': typeof InsightsRoute
+  '/institution': typeof InstitutionRoute
+  '/linkedin': typeof LinkedinRoute
+  '/platform': typeof PlatformRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
+  '/resources': typeof ResourcesRoute
   '/run-analytics': typeof RunAnalyticsRoute
+  '/terms': typeof TermsRoute
+  '/website-analytics': typeof WebsiteAnalyticsRoute
+  '/youtube': typeof YoutubeRoute
+  '/youtube-admin': typeof YoutubeAdminRoute
+  '/sports/football': typeof SportsFootballRoute
+  '/sports/game-analysis': typeof SportsGameAnalysisRoute
+  '/sports/hockey': typeof SportsHockeyRoute
+  '/sports/relay': typeof SportsRelayRoute
+  '/sports/running': typeof SportsRunningRoute
+  '/sports/swimming': typeof SportsSwimmingRoute
+  '/sports': typeof SportsIndexRoute
+  '/sports/athletics/high-jump': typeof SportsAthleticsHighJumpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
   '/athlete-performance': typeof AthletePerformanceRoute
+  '/athletes': typeof AthletesRoute
+  '/book-appointment': typeof BookAppointmentRoute
+  '/careers': typeof CareersRoute
+  '/coaches': typeof CoachesRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/cta-report': typeof CtaReportRoute
   '/dashboard': typeof DashboardRoute
+  '/ecosystem': typeof EcosystemRoute
+  '/google-trends': typeof GoogleTrendsRoute
+  '/help': typeof HelpRoute
   '/insights': typeof InsightsRoute
+  '/institution': typeof InstitutionRoute
+  '/linkedin': typeof LinkedinRoute
+  '/platform': typeof PlatformRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
+  '/resources': typeof ResourcesRoute
   '/run-analytics': typeof RunAnalyticsRoute
+  '/terms': typeof TermsRoute
+  '/website-analytics': typeof WebsiteAnalyticsRoute
+  '/youtube': typeof YoutubeRoute
+  '/youtube-admin': typeof YoutubeAdminRoute
+  '/sports/football': typeof SportsFootballRoute
+  '/sports/game-analysis': typeof SportsGameAnalysisRoute
+  '/sports/hockey': typeof SportsHockeyRoute
+  '/sports/relay': typeof SportsRelayRoute
+  '/sports/running': typeof SportsRunningRoute
+  '/sports/swimming': typeof SportsSwimmingRoute
+  '/sports/': typeof SportsIndexRoute
+  '/sports/athletics/high-jump': typeof SportsAthleticsHighJumpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/analytics'
     | '/athlete-performance'
+    | '/athletes'
+    | '/book-appointment'
+    | '/careers'
+    | '/coaches'
     | '/community'
     | '/contact'
+    | '/cta-report'
     | '/dashboard'
+    | '/ecosystem'
+    | '/google-trends'
+    | '/help'
     | '/insights'
+    | '/institution'
+    | '/linkedin'
+    | '/platform'
+    | '/pricing'
+    | '/privacy'
     | '/recommendations'
+    | '/reports'
+    | '/resources'
     | '/run-analytics'
+    | '/terms'
+    | '/website-analytics'
+    | '/youtube'
+    | '/youtube-admin'
+    | '/sports/football'
+    | '/sports/game-analysis'
+    | '/sports/hockey'
+    | '/sports/relay'
+    | '/sports/running'
+    | '/sports/swimming'
+    | '/sports/'
+    | '/sports/athletics/high-jump'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/analytics'
     | '/athlete-performance'
+    | '/athletes'
+    | '/book-appointment'
+    | '/careers'
+    | '/coaches'
     | '/community'
     | '/contact'
+    | '/cta-report'
     | '/dashboard'
+    | '/ecosystem'
+    | '/google-trends'
+    | '/help'
     | '/insights'
+    | '/institution'
+    | '/linkedin'
+    | '/platform'
+    | '/pricing'
+    | '/privacy'
     | '/recommendations'
+    | '/reports'
+    | '/resources'
     | '/run-analytics'
+    | '/terms'
+    | '/website-analytics'
+    | '/youtube'
+    | '/youtube-admin'
+    | '/sports/football'
+    | '/sports/game-analysis'
+    | '/sports/hockey'
+    | '/sports/relay'
+    | '/sports/running'
+    | '/sports/swimming'
+    | '/sports'
+    | '/sports/athletics/high-jump'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/analytics'
     | '/athlete-performance'
+    | '/athletes'
+    | '/book-appointment'
+    | '/careers'
+    | '/coaches'
     | '/community'
     | '/contact'
+    | '/cta-report'
     | '/dashboard'
+    | '/ecosystem'
+    | '/google-trends'
+    | '/help'
     | '/insights'
+    | '/institution'
+    | '/linkedin'
+    | '/platform'
+    | '/pricing'
+    | '/privacy'
     | '/recommendations'
+    | '/reports'
+    | '/resources'
     | '/run-analytics'
+    | '/terms'
+    | '/website-analytics'
+    | '/youtube'
+    | '/youtube-admin'
+    | '/sports/football'
+    | '/sports/game-analysis'
+    | '/sports/hockey'
+    | '/sports/relay'
+    | '/sports/running'
+    | '/sports/swimming'
+    | '/sports/'
+    | '/sports/athletics/high-jump'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AnalyticsRoute: typeof AnalyticsRoute
   AthletePerformanceRoute: typeof AthletePerformanceRoute
+  AthletesRoute: typeof AthletesRoute
+  BookAppointmentRoute: typeof BookAppointmentRoute
+  CareersRoute: typeof CareersRoute
+  CoachesRoute: typeof CoachesRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
+  CtaReportRoute: typeof CtaReportRoute
   DashboardRoute: typeof DashboardRoute
+  EcosystemRoute: typeof EcosystemRoute
+  GoogleTrendsRoute: typeof GoogleTrendsRoute
+  HelpRoute: typeof HelpRoute
   InsightsRoute: typeof InsightsRoute
+  InstitutionRoute: typeof InstitutionRoute
+  LinkedinRoute: typeof LinkedinRoute
+  PlatformRoute: typeof PlatformRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
   RecommendationsRoute: typeof RecommendationsRoute
+  ReportsRoute: typeof ReportsRoute
+  ResourcesRoute: typeof ResourcesRoute
   RunAnalyticsRoute: typeof RunAnalyticsRoute
+  TermsRoute: typeof TermsRoute
+  WebsiteAnalyticsRoute: typeof WebsiteAnalyticsRoute
+  YoutubeRoute: typeof YoutubeRoute
+  YoutubeAdminRoute: typeof YoutubeAdminRoute
+  SportsFootballRoute: typeof SportsFootballRoute
+  SportsGameAnalysisRoute: typeof SportsGameAnalysisRoute
+  SportsHockeyRoute: typeof SportsHockeyRoute
+  SportsRelayRoute: typeof SportsRelayRoute
+  SportsRunningRoute: typeof SportsRunningRoute
+  SportsSwimmingRoute: typeof SportsSwimmingRoute
+  SportsIndexRoute: typeof SportsIndexRoute
+  SportsAthleticsHighJumpRoute: typeof SportsAthleticsHighJumpRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -163,11 +527,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/athlete-performance': {
       id: '/athlete-performance'
       path: '/athlete-performance'
       fullPath: '/athlete-performance'
       preLoaderRoute: typeof AthletePerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/athletes': {
+      id: '/athletes'
+      path: '/athletes'
+      fullPath: '/athletes'
+      preLoaderRoute: typeof AthletesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-appointment': {
+      id: '/book-appointment'
+      path: '/book-appointment'
+      fullPath: '/book-appointment'
+      preLoaderRoute: typeof BookAppointmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coaches': {
+      id: '/coaches'
+      path: '/coaches'
+      fullPath: '/coaches'
+      preLoaderRoute: typeof CoachesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community': {
@@ -184,11 +583,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cta-report': {
+      id: '/cta-report'
+      path: '/cta-report'
+      fullPath: '/cta-report'
+      preLoaderRoute: typeof CtaReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecosystem': {
+      id: '/ecosystem'
+      path: '/ecosystem'
+      fullPath: '/ecosystem'
+      preLoaderRoute: typeof EcosystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/google-trends': {
+      id: '/google-trends'
+      path: '/google-trends'
+      fullPath: '/google-trends'
+      preLoaderRoute: typeof GoogleTrendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights': {
@@ -198,11 +625,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/institution': {
+      id: '/institution'
+      path: '/institution'
+      fullPath: '/institution'
+      preLoaderRoute: typeof InstitutionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linkedin': {
+      id: '/linkedin'
+      path: '/linkedin'
+      fullPath: '/linkedin'
+      preLoaderRoute: typeof LinkedinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recommendations': {
       id: '/recommendations'
       path: '/recommendations'
       fullPath: '/recommendations'
       preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/run-analytics': {
@@ -212,19 +688,131 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RunAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/website-analytics': {
+      id: '/website-analytics'
+      path: '/website-analytics'
+      fullPath: '/website-analytics'
+      preLoaderRoute: typeof WebsiteAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youtube': {
+      id: '/youtube'
+      path: '/youtube'
+      fullPath: '/youtube'
+      preLoaderRoute: typeof YoutubeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youtube-admin': {
+      id: '/youtube-admin'
+      path: '/youtube-admin'
+      fullPath: '/youtube-admin'
+      preLoaderRoute: typeof YoutubeAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/': {
+      id: '/sports/'
+      path: '/sports'
+      fullPath: '/sports/'
+      preLoaderRoute: typeof SportsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/football': {
+      id: '/sports/football'
+      path: '/sports/football'
+      fullPath: '/sports/football'
+      preLoaderRoute: typeof SportsFootballRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/game-analysis': {
+      id: '/sports/game-analysis'
+      path: '/sports/game-analysis'
+      fullPath: '/sports/game-analysis'
+      preLoaderRoute: typeof SportsGameAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/hockey': {
+      id: '/sports/hockey'
+      path: '/sports/hockey'
+      fullPath: '/sports/hockey'
+      preLoaderRoute: typeof SportsHockeyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/relay': {
+      id: '/sports/relay'
+      path: '/sports/relay'
+      fullPath: '/sports/relay'
+      preLoaderRoute: typeof SportsRelayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/running': {
+      id: '/sports/running'
+      path: '/sports/running'
+      fullPath: '/sports/running'
+      preLoaderRoute: typeof SportsRunningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/swimming': {
+      id: '/sports/swimming'
+      path: '/sports/swimming'
+      fullPath: '/sports/swimming'
+      preLoaderRoute: typeof SportsSwimmingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sports/athletics/high-jump': {
+      id: '/sports/athletics/high-jump'
+      path: '/sports/athletics/high-jump'
+      fullPath: '/sports/athletics/high-jump'
+      preLoaderRoute: typeof SportsAthleticsHighJumpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AnalyticsRoute: AnalyticsRoute,
   AthletePerformanceRoute: AthletePerformanceRoute,
+  AthletesRoute: AthletesRoute,
+  BookAppointmentRoute: BookAppointmentRoute,
+  CareersRoute: CareersRoute,
+  CoachesRoute: CoachesRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
+  CtaReportRoute: CtaReportRoute,
   DashboardRoute: DashboardRoute,
+  EcosystemRoute: EcosystemRoute,
+  GoogleTrendsRoute: GoogleTrendsRoute,
+  HelpRoute: HelpRoute,
   InsightsRoute: InsightsRoute,
+  InstitutionRoute: InstitutionRoute,
+  LinkedinRoute: LinkedinRoute,
+  PlatformRoute: PlatformRoute,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
   RecommendationsRoute: RecommendationsRoute,
+  ReportsRoute: ReportsRoute,
+  ResourcesRoute: ResourcesRoute,
   RunAnalyticsRoute: RunAnalyticsRoute,
+  TermsRoute: TermsRoute,
+  WebsiteAnalyticsRoute: WebsiteAnalyticsRoute,
+  YoutubeRoute: YoutubeRoute,
+  YoutubeAdminRoute: YoutubeAdminRoute,
+  SportsFootballRoute: SportsFootballRoute,
+  SportsGameAnalysisRoute: SportsGameAnalysisRoute,
+  SportsHockeyRoute: SportsHockeyRoute,
+  SportsRelayRoute: SportsRelayRoute,
+  SportsRunningRoute: SportsRunningRoute,
+  SportsSwimmingRoute: SportsSwimmingRoute,
+  SportsIndexRoute: SportsIndexRoute,
+  SportsAthleticsHighJumpRoute: SportsAthleticsHighJumpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

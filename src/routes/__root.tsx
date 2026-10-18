@@ -6,12 +6,37 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteFooter, SiteHeader } from "@/components/site-shell";
+import { DigitalPresenceAssistant } from "@/components/digital-presence-assistant";
+import { AuthProvider } from "@/lib/auth-context";
+import { captureUtmParams } from "@/lib/utm-tracker";
+
+// IN27-52: Microsoft Clarity Integration — Project ID: yrxe87qisd
+function initMicrosoftClarity() {
+  if (typeof window === "undefined") return;
+  // Prevent double-init
+  if ((window as unknown as Record<string, unknown>)["clarity"]) return;
+  const clarityProjectId = "yrxe87qisd";
+  (function (c: Window & Record<string, unknown>, l: Document, a: string, r: string, i: string) {
+    (c as any)[a] =
+      (c as any)[a] ||
+      function (...args: unknown[]) {
+        ((c as any)[a].q = (c as any)[a].q || []).push(args);
+      };
+    const t = l.createElement(r) as HTMLScriptElement;
+    t.async = true;
+    t.src = "https://www.clarity.ms/tag/" + i;
+    const y = l.getElementsByTagName(r)[0];
+    y?.parentNode?.insertBefore(t, y);
+  })(window as any, document, "clarity", "script", clarityProjectId);
+}
 
 function NotFoundComponent() {
   return (
@@ -35,7 +60,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -117,11 +142,22 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  // IN27-52: Init Microsoft Clarity & UTM capture on first render (client-side only)
+  useEffect(() => {
+    initMicrosoftClarity();
+    captureUtmParams();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteHeader />
-      <main><Outlet /></main>
-      <SiteFooter />
+      <AuthProvider>
+        <SiteHeader />
+        <main><Outlet /></main>
+        <SiteFooter />
+        <DigitalPresenceAssistant />
+        {/* Vercel Web Analytics — tracks page views on all routes */}
+        <Analytics />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

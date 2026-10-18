@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Deep Dive: Optical Computer Vision Pitch Tracking on SportsMax Intelligence</title>
+  <!--[if mso]>
+  <style type="text/css">
+    body, table, td, h1, h2, p, a { font-family: Arial, sans-serif !important; }
+  </style>
+  <![endif]-->
+  <style type="text/css">
+    @media only screen and (max-width: 620px) {
+      .sm-container { width: 100% !important; max-width: 100% !important; border-radius: 0 !important; }
+      .sm-inner-pad { padding-left: 20px !important; padding-right: 20px !important; }
+      .sm-hero-pad { padding: 24px 20px !important; }
+      .sm-stack { display: block !important; width: 100% !important; max-width: 100% !important; }
+      .sm-hide-mobile { display: none !important; }
+      .sm-center { text-align: center !important; }
+      .sm-btn { width: 100% !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#090e1a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#0f172a;">
+  <!-- Preheader / Preview Text -->
+  <div style="display:none;font-size:1px;color:#090e1a;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+    Deep dive into Optical Computer Vision Pitch Tracking on SportsMax Intelligence.
+    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#090e1a;padding:24px 12px;">
+    <tr><td align="center">
+      <!-- 600px Centered Container -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="sm-container" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid #cbd5e1;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+        <!-- Top Branded Header Bar -->
+        <tr>
+          <td style="background-color:#090e1a;background:linear-gradient(180deg, #070b15 0%, #0d1527 100%);padding:22px 32px;border-bottom:1px solid #1a2744;" class="sm-inner-pad">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="vertical-align:middle;">
+                  <a href="https://sports-max-dig.vercel.app/" style="text-decoration:none;display:inline-block;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <!-- Logo Icon (Sports Activity / Pulse Mark) -->
+                        <td style="width:38px;height:38px;background:linear-gradient(135deg,#0284c7 0%,#2563eb 100%);border-radius:8px;text-align:center;vertical-align:middle;box-shadow:0 2px 8px rgba(37,99,235,0.4);">
+                          <div style="font-family:Arial,sans-serif;font-size:20px;font-weight:900;color:#ffffff;line-height:38px;text-align:center;">&Sigma;</div>
+                        </td>
+                        <td style="padding-left:12px;vertical-align:middle;">
+                          <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,sans-serif;font-size:21px;font-weight:900;letter-spacing:-0.03em;line-height:1;color:#ffffff;">
+                            SPORTS<span style="color:#0ea5e9;">MAX</span>
+                          </div>
+                          <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#94a3b8;margin-top:3px;line-height:1;">
+                            Intelligence Hub
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                </td>
+                <td align="right" style="vertical-align:middle;">
+                  <span style="display:inline-block;background-color:rgba(14,165,233,0.18);border:1px solid rgba(56,189,248,0.4);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#38bdf8;">Spotlight</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Hero Analytics Visual Banner with High-Contrast Fallback -->
+        <tr>
+          <td style="padding:0;background-color:#0b1933;line-height:0;">
+            <a href="https://sports-max-dig.vercel.app/" style="text-decoration:none;display:block;">
+              <img src="https://sports-max-dig.vercel.app/assets/sportsmax-runner-CSzSy2iA.jpg" alt="SportsMax Performance Intelligence — Every Performance Has a Story" width="600" style="display:block;width:100%;max-width:600px;height:auto;max-height:220px;object-fit:cover;border:0;color:#ffffff;font-size:13px;line-height:220px;text-align:center;background-color:#0b1933;" />
+            </a>
+          </td>
+        </tr>
+
+        <!-- Hero Headline & Core Brand Statement -->
+        <tr>
+          <td style="background-color:#0d182e;background:linear-gradient(135deg, #091224 0%, #0d1c3a 50%, #0b2247 100%);padding:28px 32px 26px;border-bottom:1px solid #1e293b;" class="sm-inner-pad">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td>
+                  <div style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#38bdf8;margin-bottom:8px;">
+                    Product Deep Dive · SportsMax Platform
+                  </div>
+                  <h1 style="margin:0 0 8px;font-size:24px;font-weight:800;color:#ffffff;line-height:1.25;letter-spacing:-0.01em;">
+                    Optical Computer Vision Pitch Tracking
+                  </h1>
+                  <div style="font-size:13px;color:#94a3b8;line-height:1.5;font-weight:500;">
+                    Extract multi-player kinematic velocity, heatmaps, and spatial density straight from broadcast or tactical video without body sensors.
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr><!-- Email Body Content -->
+        <tr>
+          <td style="background-color:#ffffff;padding:36px 36px 28px;color:#0f172a;" class="sm-inner-pad">
+            
+      <div style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:12px;">
+        Hello Jordan,
+      </div>
+
+      <p style="margin:0 0 16px;font-size:14px;color:#334155;line-height:1.7;">
+        Discover how <strong style="color:#0284c7;">Optical Computer Vision Pitch Tracking</strong> works under the hood to deliver immediate tactical and physical insights.
+      </p>
+
+      <div style="background-color:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:16px 20px;margin:22px 0;">
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#059669;margin-bottom:8px;">Core Capabilities</div>
+    <div style="font-size:13px;color:#064e3b;line-height:1.6;"><ul style="margin:0;padding-left:18px;"><li style="padding:4px 0;color:#064e3b;font-size:13px;line-height:1.6;">Sub-50ms automated detection of player tracking markers</li><li style="padding:4px 0;color:#064e3b;font-size:13px;line-height:1.6;">Tactical territory control calculation and pitch voronoi partitions</li><li style="padding:4px 0;color:#064e3b;font-size:13px;line-height:1.6;">Sprint acceleration arcs and deceleration impact loads</li></ul></div>
+  </div>
+
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:28px 0 20px;">
+    <tr>
+      <td align="center">
+        <!--[if mso]>
+        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://sports-max-dig.vercel.app/platform" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="18%" stroke="f" fillcolor="#059669">
+          <w:anchorlock/>
+          <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;">See Feature Walkthrough</center>
+        </v:roundrect>
+        <![endif]-->
+        <!--[if !mso]><!-- -->
+        <a href="https://sports-max-dig.vercel.app/platform" target="_blank" class="sm-btn" style="display:inline-block;background-color:#059669;background:linear-gradient(135deg, #047857 0%, #059669 100%);color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 34px;border-radius:8px;letter-spacing:0.02em;box-shadow:0 4px 14px rgba(37,99,235,0.3);text-align:center;">
+          See Feature Walkthrough &rarr;
+        </a>
+        <!--<![endif]-->
+      </td>
+    </tr>
+  </table>
+
+      <p style="margin:20px 0 0;font-size:12px;color:#64748b;line-height:1.6;text-align:center;">
+        Want a live demonstration tailored to your athletes? Email us at
+        <a href="mailto:hello@sportsmax.ai" style="color:#0284c7;text-decoration:none;font-weight:600;">hello@sportsmax.ai</a>.
+      </p>
+    
+          </td>
+        </tr>
+        <!-- Distinct Branded Footer -->
+        <tr>
+          <td style="background-color:#070b15;background:linear-gradient(180deg, #0a0f1d 0%, #05070d 100%);border-top:1px solid #1a2744;padding:32px 32px 24px;" class="sm-inner-pad">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <!-- Footer Logo + Brand Statement -->
+              <tr>
+                <td align="center" style="padding-bottom:18px;">
+                  <a href="https://sports-max-dig.vercel.app/" style="text-decoration:none;display:inline-block;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="width:28px;height:28px;background:linear-gradient(135deg,#0284c7 0%,#2563eb 100%);border-radius:6px;text-align:center;vertical-align:middle;">
+                          <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:900;color:#ffffff;line-height:28px;text-align:center;">&Sigma;</div>
+                        </td>
+                        <td style="padding-left:10px;vertical-align:middle;text-align:left;">
+                          <div style="font-size:16px;font-weight:900;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+                            SPORTS<span style="color:#0ea5e9;">MAX</span>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                  <p style="margin:12px auto 0;max-width:440px;font-size:12px;color:#94a3b8;line-height:1.6;text-align:center;">
+                    Turn athlete telemetry, match tracking, and tactical video into performance intelligence across 24+ individual and team sports.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Verified Navigation Links -->
+              <tr>
+                <td align="center" style="padding-bottom:14px;border-top:1px solid #141e33;padding-top:18px;">
+                  <div style="line-height:2;">
+                    <a href="https://sports-max-dig.vercel.app/" style="color:#94a3b8;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap;display:inline-block;padding:2px 4px;">Home</a><span style="color:#334155;margin:0 4px;">&bull;</span><a href="https://sports-max-dig.vercel.app/sports" style="color:#94a3b8;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap;display:inline-block;padding:2px 4px;">Sports</a><span style="color:#334155;margin:0 4px;">&bull;</span><a href="https://sports-max-dig.vercel.app/platform" style="color:#94a3b8;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap;display:inline-block;padding:2px 4px;">Platform</a><span style="color:#334155;margin:0 4px;">&bull;</span><a href="https://sports-max-dig.vercel.app/pricing" style="color:#94a3b8;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap;display:inline-block;padding:2px 4px;">Pricing</a><span style="color:#334155;margin:0 4px;">&bull;</span><a href="https://sports-max-dig.vercel.app/contact" style="color:#94a3b8;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap;display:inline-block;padding:2px 4px;">Contact</a>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Official Social & Video Channels -->
+              <tr>
+                <td align="center" style="padding-bottom:18px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+                    <tr>
+                      <td style="padding:0 8px;">
+                        <a href="https://www.linkedin.com/company/sportsmax-intelligence" target="_blank" style="display:inline-block;background-color:#0a192f;border:1px solid #1e3a8a;border-radius:6px;padding:4px 10px;text-decoration:none;font-size:11px;font-weight:700;color:#38bdf8;">
+                          &bull; LinkedIn Company Page &rarr;
+                        </a>
+                      </td>
+                      <td style="padding:0 8px;">
+                        <a href="https://sports-max-dig.vercel.app/youtube" target="_blank" style="display:inline-block;background-color:#1c0d0d;border:1px solid #7f1d1d;border-radius:6px;padding:4px 10px;text-decoration:none;font-size:11px;font-weight:700;color:#f87171;">
+                          &bull; YouTube Video Hub &rarr;
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Contact Information -->
+              <tr>
+                <td align="center" style="padding-bottom:18px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+                    <tr>
+                      <td style="padding:0 8px;font-size:12px;color:#64748b;text-align:center;">
+                        Direct Solutions Desk:
+                        <a href="mailto:hello@sportsmax.ai" style="color:#38bdf8;text-decoration:none;font-weight:600;">hello@sportsmax.ai</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-top:4px;font-size:11px;color:#475569;text-align:center;">
+                        Official Portal:
+                        <a href="https://sports-max-dig.vercel.app/" style="color:#94a3b8;text-decoration:none;">sports-max-dig.vercel.app</a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+        <td style="padding:0 32px 14px;text-align:center;" class="sm-inner-pad">
+          <p style="margin:0;font-size:11px;color:#64748b;line-height:1.6;">
+            You received this communication because you opted in or engaged with SportsMax.
+            <a href="https://sports-max-dig.vercel.app/contact" style="color:#38bdf8;text-decoration:underline;">Manage preferences</a>
+            &nbsp;or&nbsp;
+            <a href="https://sports-max-dig.vercel.app/contact" style="color:#38bdf8;text-decoration:underline;">Unsubscribe</a> anytime.
+          </p>
+        </td>
+      </tr>
+              
+
+              <!-- Legal & Copyright -->
+              <tr>
+                <td align="center" style="border-top:1px solid #141e33;padding-top:18px;">
+                  <p style="margin:0;font-size:11px;color:#475569;line-height:1.6;">
+                    &copy; 2026 SportsMax Technologies Inc. All rights reserved.
+                    <br>
+                    <a href="https://sports-max-dig.vercel.app/privacy" style="color:#64748b;text-decoration:none;font-weight:600;">Privacy Policy</a>
+                    &nbsp;&bull;&nbsp;
+                    <a href="https://sports-max-dig.vercel.app/terms" style="color:#64748b;text-decoration:none;font-weight:600;">Terms of Service</a>
+                    &nbsp;&bull;&nbsp;
+                    <a href="https://sports-max-dig.vercel.app/contact" style="color:#64748b;text-decoration:none;font-weight:600;">Contact Governance</a>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

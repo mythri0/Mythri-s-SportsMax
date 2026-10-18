@@ -1,9 +1,128 @@
-import { FormEvent, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, Mail, MessageSquareText, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { DemoBadge, PageIntro } from "@/components/sports-ui";
-export const Route=createFileRoute("/contact")({head:()=>({meta:[{title:"Contact SportsMax"},{name:"description",content:"Contact the SportsMax team about sports analytics, athlete performance intelligence, and product demonstrations."},{property:"og:title",content:"Contact SportsMax"},{property:"og:description",content:"Start a conversation about smarter sports performance intelligence."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}],links:[{rel:"canonical",href:"/contact"}]}),component:Contact});
-function Contact(){const [sent,setSent]=useState(false);function submit(e:FormEvent){e.preventDefault();setSent(true)}return <><PageIntro eyebrow="Contact" title="Let’s build a clearer view of performance." text="Tell us about your athletes, organization, or analytics goals. This prototype form demonstrates the intended contact experience." action={<DemoBadge/>}/><section className="py-14"><div className="content-wrap grid gap-8 lg:grid-cols-[.72fr_1.28fr]"><div><h2 className="text-2xl font-semibold">Start a conversation</h2><p className="mt-4 text-sm leading-6 text-muted-foreground">SportsMax is designed for teams that want to move from scattered metrics to useful, repeatable intelligence.</p><div className="mt-8 grid gap-5">{[[Users,"Sports organizations","Explore multi-athlete analytics"],[MessageSquareText,"Coaches & analysts","Discuss workflow automation"],[Mail,"Partnerships","Connect performance and engagement"]].map(([Ico,a,b])=>{const Icon=Ico as typeof Users;return <div key={String(a)} className="flex gap-4"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-primary/10 text-primary"><Icon className="h-5 w-5"/></span><div><p className="font-semibold">{String(a)}</p><p className="mt-1 text-sm text-muted-foreground">{String(b)}</p></div></div>})}</div></div><div className="surface-card p-6 sm:p-8">{sent?<div className="grid min-h-96 place-items-center text-center"><div><CheckCircle2 className="mx-auto h-12 w-12 text-primary"/><h2 className="mt-5 text-2xl font-semibold">Message captured</h2><p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-muted-foreground">Thanks for exploring SportsMax. This demo confirmation is local; no message was sent.</p><Button className="mt-6" variant="outline" onClick={()=>setSent(false)}>Send another</Button></div></div>:<form onSubmit={submit} className="grid gap-5"><div className="grid gap-5 sm:grid-cols-2"><label className="grid gap-2 text-sm font-medium">Name<Input required placeholder="Your name"/></label><label className="grid gap-2 text-sm font-medium">Work email<Input required type="email" placeholder="you@organization.com"/></label></div><label className="grid gap-2 text-sm font-medium">Organization<Input placeholder="Team or organization"/></label><label className="grid gap-2 text-sm font-medium">I’m interested in<select className="h-9 rounded-md border border-input bg-background px-3 text-sm"><option>Run analytics</option><option>Athlete performance</option><option>Organization dashboard</option><option>Community engagement</option></select></label><label className="grid gap-2 text-sm font-medium">Message<Textarea required className="min-h-32" placeholder="Tell us what you want to understand or improve."/></label><Button type="submit" size="lg">Send message</Button><p className="text-xs text-muted-foreground">Demo form only. No personal information is stored or transmitted.</p></form>}</div></div></section></>}
+import {
+  BarChart3,
+  Bot,
+  BrainCircuit,
+  Mail,
+  Shield,
+  Trophy,
+  Users,
+  Zap,
+} from "lucide-react";
+import { ConnectWithSportsMax } from "@/components/connect-with-sportsmax";
+import { Eyebrow, PageIntro } from "@/components/sports-ui";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Connect with SportsMax — Sports Analytics Enquiry" },
+      {
+        name: "description",
+        content:
+          "Connect with the SportsMax sports intelligence team. Discuss athlete performance analytics, team telemetry, tactical computer vision, and partnership opportunities.",
+      },
+      { property: "og:title", content: "Connect with SportsMax" },
+      {
+        property: "og:description",
+        content:
+          "Start a conversation about smarter sports performance intelligence and interact with the SportsMax Assistant.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+  }),
+  component: ContactPage,
+});
+
+const TRUST_SIGNALS = [
+  {
+    icon: Users,
+    title: "Elite Federations & Clubs",
+    desc: "Multi-squad telemetry, load management, and federation-level reporting.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "Tactical & Match Analysis",
+    desc: "Formation detection, pitch density models, and AI coaching automation.",
+  },
+  {
+    icon: BarChart3,
+    title: "Biomechanics & Kinematics",
+    desc: "Kinematic data pipelines, sprint arcs, and injury-risk flags.",
+  },
+];
+
+const METRICS = [
+  { label: "< 50ms", desc: "Live match latency" },
+  { label: "24+ Sports", desc: "Supported disciplines" },
+  { label: "99.2%", desc: "Tracking precision" },
+  { label: "AI-Native", desc: "Performance copilot" },
+];
+
+function ContactPage() {
+  return (
+    <>
+      <PageIntro
+        eyebrow="Direct Inquiry & AI Assistant"
+        title="Connect with SportsMax"
+        text="Tell us about your athletes, sports organization, or analytical goals. Our solutions team will review your requirement and follow up promptly."
+      />
+
+      {/* Trust & Metric Banner */}
+      <section className="border-b border-border bg-card/60 py-8">
+        <div className="content-wrap">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {METRICS.map((m) => (
+              <div key={m.label} className="border-l-2 border-primary/50 pl-4">
+                <div className="font-display text-2xl font-bold text-foreground">{m.label}</div>
+                <div className="text-xs text-muted-foreground">{m.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Main Connect with SportsMax Form + Assistant Chatbot */}
+      <ConnectWithSportsMax />
+
+      {/* Additional Support & Signals */}
+      <section className="py-14 bg-background border-t border-border">
+        <div className="content-wrap grid gap-8 md:grid-cols-3">
+          {TRUST_SIGNALS.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div key={s.title} className="surface-card p-6 flex flex-col gap-2">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="font-display font-bold text-base text-foreground mt-2">{s.title}</h3>
+                <p className="text-xs leading-relaxed text-muted-foreground">{s.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="content-wrap mt-8">
+          <div className="rounded-xl border border-border bg-secondary/50 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                <Mail className="h-4 w-4" />
+              </span>
+              <div>
+                <h4 className="text-xs font-bold text-foreground">Need immediate direct contact?</h4>
+                <p className="text-xs text-muted-foreground">
+                  Email our solutions desk directly at{" "}
+                  <a href="mailto:hello@sportsmax.ai" className="text-primary font-semibold hover:underline">
+                    hello@sportsmax.ai
+                  </a>
+                </p>
+              </div>
+            </div>
+            <span className="text-xs text-muted-foreground font-mono">Mon–Fri, response within 24h</span>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
