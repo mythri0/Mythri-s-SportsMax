@@ -298,7 +298,15 @@ export default {
 
       // 1. POST /api/youtube/auth/login
       if (url.pathname === "/api/youtube/auth/login" && request.method === "POST") {
-        const { validateAdminPassword, signSession, buildSetCookieHeader, checkAirtableRateLimit, hashClientIp, validateCsrfOrigin } = await import("./lib/youtube-session");
+        const {
+          validateAdminPassword,
+          signSession,
+          buildSetCookieHeader,
+          checkAirtableRateLimit,
+          hashClientIp,
+          validateCsrfOrigin,
+        } = await import("./lib/youtube-session");
+        const { checkRedisRateLimit } = await import("./lib/redis");
 
         if (!validateCsrfOrigin(request)) {
           return new Response(JSON.stringify({ success: false, error: "Invalid origin or CSRF check failed" }), {
@@ -309,7 +317,17 @@ export default {
 
         const clientIp = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
         const ipHash = hashClientIp(clientIp);
-        const rateCheck = await checkAirtableRateLimit(`login_${ipHash}`, 5, 15 * 60);
+        let rateCheck: { allowed: boolean; remaining: number };
+        try {
+          rateCheck = await checkRedisRateLimit(`login_${ipHash}`, 5, 15 * 60);
+        } catch (redisError) {
+          console.error(
+            "[YouTube Login] Redis rate limiter unavailable; using Airtable fallback:",
+            redisError instanceof Error ? redisError.message : "Unknown Redis error",
+          );
+          rateCheck = await checkAirtableRateLimit(`login_${ipHash}`, 5, 15 * 60);
+        }
+
         if (!rateCheck.allowed) {
           return new Response(JSON.stringify({ success: false, error: "Too many login attempts. Please try again later." }), {
             status: 429,
@@ -564,12 +582,23 @@ export default {
       // 8. POST /api/youtube/lead (Public Lead capture with rate limit and Jira dedup)
       if (url.pathname === "/api/youtube/lead" && request.method === "POST") {
         const { checkAirtableRateLimit, hashClientIp } = await import("./lib/youtube-session");
+        const { checkRedisRateLimit } = await import("./lib/redis");
         const clientIp = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
         const ipHash = hashClientIp(clientIp);
 
         // Rate limiting: 5 requests per 10 minutes per IP hash.
-        // Documented: Airtable rate limiting is non-atomic and may fail open; input validation and dedup remain active.
-        const rateCheck = await checkAirtableRateLimit(`lead_${ipHash}`, 5, 10 * 60);
+        // Prefer Redis atomic counters; fall back to the existing Airtable limiter if Redis is unavailable.
+        let rateCheck: { allowed: boolean; remaining: number };
+        try {
+          rateCheck = await checkRedisRateLimit(`lead_${ipHash}`, 5, 10 * 60);
+        } catch (redisError) {
+          console.error(
+            "[YouTube Lead] Redis rate limiter unavailable; using Airtable fallback:",
+            redisError instanceof Error ? redisError.message : "Unknown Redis error",
+          );
+          rateCheck = await checkAirtableRateLimit(`lead_${ipHash}`, 5, 10 * 60);
+        }
+
         if (!rateCheck.allowed) {
           return new Response(
             JSON.stringify({ success: false, error: "Too many submission attempts. Please try again later." }),
